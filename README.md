@@ -106,9 +106,9 @@ Strict entity-level evaluation (`seqeval`, IOB2) on the held-out test set:
 
 | Metric | Score |
 |---|---|
-| Precision | **XX.X%** |
-| Recall | **XX.X%** |
-| F1-score | **XX.X%** |
+| Precision | **0.581%** |
+| Recall | **0.344%** |
+| F1-score | **0.425%** |
 
 <div align="center">
 
