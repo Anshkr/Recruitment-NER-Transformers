@@ -1,0 +1,41 @@
+{
+    "training": {
+        "original_files": 310,
+        "retained_records": 309,
+        "rejected_records": {
+            "duplicate": 1
+        },
+        "entity_distribution": {
+            "PERSON": 428,
+            "DESIGNATION": 1835,
+            "LOCATION": 1467,
+            "EMAIL": 359,
+            "COMPANY": 1222,
+            "TECH_SKILL": 3799,
+            "JOB_SKILL": 2525,
+            "EXPERIENCE": 1232,
+            "DEGREE": 713,
+            "COLLEGE": 832,
+            "GRAD_YEAR": 402
+        }
+    },
+    "testing": {
+        "original_files": 50,
+        "retained_records": 50,
+        "rejected_records": {},
+        "entity_distribution": {
+            "PERSON": 72,
+            "DESIGNATION": 258,
+            "LOCATION": 261,
+            "EMAIL": 48,
+            "EXPERIENCE": 182,
+            "COMPANY": 181,
+            "TECH_SKILL": 483,
+            "JOB_SKILL": 557,
+            "DEGREE": 108,
+            "COLLEGE": 102,
+            "GRAD_YEAR": 59
+        }
+    },
+    "cross_split_duplicate_resumes": 1
+}

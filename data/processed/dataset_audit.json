@@ -1,0 +1,53 @@
+{
+    "train": {
+        "total_files": 310,
+        "successfully_parsed": 310,
+        "total_entities": 15681,
+        "entity_counts": {
+            "Name": 428,
+            "Designation": 1855,
+            "Location": 1470,
+            "Email Address": 359,
+            "Companies worked at": 1224,
+            "Tech Tools": 3823,
+            "Job Specific Skills": 2525,
+            "Years of Experience": 1235,
+            "Degree": 714,
+            "College Name": 833,
+            "Graduation Year": 403,
+            "Soft Skills": 812
+        },
+        "malformed_files": [],
+        "resumes_without_annotations": [],
+        "empty_resumes": 0,
+        "duplicate_groups": 1,
+        "verified_spans": 15681,
+        "failed_spans": 0
+    },
+    "test": {
+        "total_files": 50,
+        "successfully_parsed": 50,
+        "total_entities": 2543,
+        "entity_counts": {
+            "Name": 72,
+            "Designation": 258,
+            "Location": 261,
+            "Email Address": 48,
+            "Years of Experience": 182,
+            "Companies worked at": 181,
+            "Tech Tools": 483,
+            "Job Specific Skills": 557,
+            "Degree": 108,
+            "College Name": 102,
+            "Graduation Year": 59,
+            "Soft Skills": 232
+        },
+        "malformed_files": [],
+        "resumes_without_annotations": [],
+        "empty_resumes": 0,
+        "duplicate_groups": 0,
+        "verified_spans": 2543,
+        "failed_spans": 0
+    },
+    "cross_split_duplicates": 1
+}

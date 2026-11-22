@@ -1,0 +1,20 @@
+# Environment
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Data (large, and dataset has its own license)
+data/raw/
+data/processed/*.jsonl
+
+# Training outputs
+models/training_checkpoints/
+*.bin
+
+# Model weights (see step 5)
+models/recruitment_bert/model.safetensors
+
+# OS / editor
+.DS_Store
+.vscode/

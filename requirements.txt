@@ -1,0 +1,18 @@
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+bs4
+lxml
+
+#for transformer
+transformers
+datasets
+accelerate
+torch
+seqeval
+
+#for gui
+streamlit
+plotly

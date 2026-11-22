@@ -1,0 +1,6 @@
+{
+    "precision": 0.5815950920245399,
+    "recall": 0.334982332155477,
+    "f1_score": 0.42511210762331836,
+    "classification_report": "              precision    recall  f1-score   support\n\n     COLLEGE     0.0000    0.0000    0.0000        47\n     COMPANY     0.8462    0.0965    0.1732       114\n      DEGREE     0.6757    0.4167    0.5155        60\n DESIGNATION     0.6187    0.5309    0.5714       162\n       EMAIL     0.0000    0.0000    0.0000        37\n  EXPERIENCE     0.6557    0.3810    0.4819       105\n   GRAD_YEAR     0.3125    0.1515    0.2041        33\n   JOB_SKILL     0.3861    0.2074    0.2699       376\n    LOCATION     0.6667    0.4663    0.5487       163\n      PERSON     0.8182    0.3158    0.4557        57\n  TECH_SKILL     0.6398    0.5172    0.5720       261\n\n   micro avg     0.5816    0.3350    0.4251      1415\n   macro avg     0.5109    0.2803    0.3448      1415\nweighted avg     0.5540    0.3350    0.4006      1415\n"
+}
