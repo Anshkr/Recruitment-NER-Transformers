@@ -18,7 +18,14 @@ from transformers import (
 # ==============================================================================
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_DIR = BASE_DIR / "models" / "recruitment_bert"
+
+# Hugging Face Hub repo that holds the fine-tuned model.
+HF_MODEL_ID = "boss012/recruitment-bert"
+
+# Optional local copy. If this folder exists it is used, otherwise the model
+# is downloaded from the Hugging Face Hub (needed for cloud deployment).
+LOCAL_MODEL_DIR = BASE_DIR / "models" / "recruitment_bert"
+MODEL_SOURCE = str(LOCAL_MODEL_DIR) if LOCAL_MODEL_DIR.exists() else HF_MODEL_ID
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 MAX_LENGTH = 512
@@ -780,11 +787,14 @@ Software Engineer
 # 4. MODEL LOADER & INFERENCE
 # ==============================================================================
 
-@st.cache_resource(show_spinner=False)
+@st.cache_resource(show_spinner="Loading BERT model (first run downloads it from Hugging Face)...")
 def load_bert_model():
-    """Load and cache the fine-tuned BERT model and tokenizer."""
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR)
-    model = AutoModelForTokenClassification.from_pretrained(MODEL_DIR)
+    """Load and cache the fine-tuned BERT model and tokenizer.
+
+    Uses the local folder when present, otherwise the Hugging Face Hub repo.
+    """
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_SOURCE)
+    model = AutoModelForTokenClassification.from_pretrained(MODEL_SOURCE)
     model.to(DEVICE)
     model.eval()
     return tokenizer, model
@@ -1072,15 +1082,14 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Verify model assets existence
-if not MODEL_DIR.exists():
-    st.error("Trained BERT weights were not found at 'models/recruitment_bert'. Please ensure the model checkpoint is placed correctly.")
-    st.stop()
-
+# Load the model (local folder if present, otherwise Hugging Face Hub)
 try:
     tokenizer, model = load_bert_model()
 except Exception as exc:
-    st.error(f"Failed to initialize neural weights: {exc}")
+    st.error(
+        f"Failed to load the model from '{MODEL_SOURCE}'. "
+        f"Check your internet connection and that the repo is public. Details: {exc}"
+    )
     st.stop()
 
 
