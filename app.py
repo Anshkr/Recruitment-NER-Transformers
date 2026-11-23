@@ -25,7 +25,11 @@ HF_MODEL_ID = "boss012/recruitment-bert"
 # Optional local copy. If this folder exists it is used, otherwise the model
 # is downloaded from the Hugging Face Hub (needed for cloud deployment).
 LOCAL_MODEL_DIR = BASE_DIR / "models" / "recruitment_bert"
-MODEL_SOURCE = str(LOCAL_MODEL_DIR) if LOCAL_MODEL_DIR.exists() else HF_MODEL_ID
+HAS_LOCAL_WEIGHTS = (
+    (LOCAL_MODEL_DIR / "model.safetensors").exists()
+    or (LOCAL_MODEL_DIR / "pytorch_model.bin").exists()
+)
+MODEL_SOURCE = str(LOCAL_MODEL_DIR) if HAS_LOCAL_WEIGHTS else HF_MODEL_ID
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 MAX_LENGTH = 512
